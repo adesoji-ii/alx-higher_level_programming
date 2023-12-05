@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+
 def add_tuple(tuple_a=(), tuple_b=()):
-    len_a, len_b = len(tuple_a), len(tuple_b)
-    new_tuple = ((tuple_a[0] if len_a >= 1 else 0) +
-                 (tuple_b[0] if len_b >= 1 else 0),
-                 (tuple_a[1] if len_a >= 2 else 0) +
-                 (tuple_b[1] if len_b >= 2 else 0))
+    max_length = max(len(tuple_a), len(tuple_b))
+    new_tuple = tuple(tuple_a[i] + tuple_b[i] if i < len(tuple_a) and i < len(tuple_b) else
+                      tuple_a[i] if i < len(tuple_a) else
+                      tuple_b[i] if i < len(tuple_b) else
+                      0 for i in range(max_length))
     return new_tuple
