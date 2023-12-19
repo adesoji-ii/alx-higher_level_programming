@@ -1,15 +1,11 @@
 #!/usr/bin/python3
 
-def safe_print_division(dividend, divisor):
-	"""Returns the division of dividend by divisor."""
-	try:
-		result = dividend / divisor
-	except ZeroDivisionError:
-		print("Error: Division by zero")
-		result = None
-	except TypeError:
-		print("Error: Unsupported operand type")
-		result = None
-	finally:
-		print("Result of the division: {}".format(result))
-	return result
+def safe_print_division(a, b):
+    """Returns the division of a by b."""
+    try:
+        div = a / b
+    except (TypeError, ZeroDivisionError):
+        div = None
+    finally:
+        print("Inside result: {}".format(div))
+    return (div)

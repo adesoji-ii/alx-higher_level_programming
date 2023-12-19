@@ -1,16 +1,21 @@
 #!/usr/bin/python3
 
-def safe_print_list(my_list=None, x=0):
-	if my_list is None:
-		my_list = []  # Set default list if None is provided
+def safe_print_list(my_list=[], x=0):
+    """Print x elememts of a list.
 
-	num_printed = 0
-	for i in range(x):
-		try:
-			print(my_list[i], end="")
-			num_printed += 1
-		except IndexError:
-			break
-	print("")  # Print a newline after the loop
+    Args:
+        my_list (list): The list to print elements from.
+        x (int): The number of elements of my_list to print.
 
-	return num_printed  # Return the number of elements printed
+    Returns:
+        The number of elements printed.
+    """
+    ret = 0
+    for i in range(x):
+        try:
+            print("{}".format(my_list[i]), end="")
+            ret += 1
+        except IndexError:
+            break
+    print("")
+    return (ret)
